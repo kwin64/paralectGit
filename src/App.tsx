@@ -1,17 +1,31 @@
-import React, {useEffect, useState} from 'react';
+import React, {ChangeEvent, useState} from 'react';
 import './App.css';
-import {usersAPI} from "./api/mainScreenApi";
+import {useDispatch} from "react-redux";
 
 function App() {
-    const [state, setState] = useState<any>(null)
-    useEffect(() => {
-        usersAPI.getUser('kwin64')
-            .then(res=> {
-                setState(res)
-            })
-    }, [])
 
-    return <div> {JSON.stringify(state)}</div>
+    // const dispatch = useDispatch()
+    //
+    // const [nameUser, setNameUser] = useState<string>()
+    // const [value, setValue] = useState<string>()
+    //
+    // const newUser = (e: ChangeEvent<HTMLInputElement>) => {
+    //     setNameUser(e.target.value)
+    // }
+    // const showValue = () => {
+    //     setValue(nameUser)
+    // }
+
+
+
+    return (
+        <div>
+            <input type="text"
+                   onChange={newUser}
+            />
+            <button onClick={showValue}>+</button>
+        </div>
+    )
 }
 
 
