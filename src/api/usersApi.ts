@@ -40,9 +40,6 @@ export type UserType = {
 }
 
 export const usersAPI = {
-    myProfileUserApi() {
-        return instance.get<UserType>(`users/kwin64`)
-    },
     getUserApi(nameUser: string) {
         return instance.get<UserType>(`users/${nameUser}`)
     }
