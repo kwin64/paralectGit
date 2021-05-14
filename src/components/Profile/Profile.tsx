@@ -1,10 +1,11 @@
 import React from 'react';
 import Repositories from "./Repositories/Repositories";
 import Description from "./Description/Description";
+import s from './Profile.module.css'
 
 function Profile() {
     return (
-        <div>
+        <div className={s.container}>
             <Description/>
             <Repositories/>
         </div>

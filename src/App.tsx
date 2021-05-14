@@ -9,7 +9,9 @@ import Profile from "./components/Profile/Profile";
 function App() {
 
     const dispatch = useDispatch();
-    const name = useSelector<AppRootStateType>(store => store.users)
+    const name = useSelector<AppRootStateType>(store => store.users.find(t => {
+        return t.name
+    }))
     const [nameUser, setNameUser] = useState<string>('')
     const [value, setValue] = useState<string>('')
 
@@ -21,11 +23,14 @@ function App() {
         setNameUser(e.target.value)
     }
     const showUser = () => {
-        if (nameUser) {
-            dispatch(getNewUser(value))
-        }
         setValue(nameUser)
+        dispatch(getNewUser(value))
     }
+
+    // useEffect(() => {
+    //     dispatch(getNewUser(value))
+    // }, [value])
+
     console.log(name)
     console.log(value)
 
@@ -33,8 +38,8 @@ function App() {
         <div className={s.container}>
             <Header/>
             <Profile/>
-            {/*<input onChange={newUser}/>*/}
-            {/*<button onClick={showUser}>+</button>*/}
+            <input onChange={newUser}/>
+            <button onClick={showUser}>+</button>
         </div>
     )
 }

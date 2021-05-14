@@ -5,6 +5,9 @@ import {Dispatch} from "redux";
 export  type ActionsType = ReturnType<typeof createMyProfile> | ReturnType<typeof getUser>
 
 
+// https://avatars.githubusercontent.com/u/68448616?v=4
+// https://avatars.githubusercontent.com/u/1?v=4
+
 let initialState: UserType[] = []
 
 console.log('state:', initialState)

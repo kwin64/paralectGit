@@ -1,8 +1,9 @@
 import React from 'react';
+import s from './Repositories.module.css'
 
 function Repositories() {
     return (
-        <div>
+        <div className={s.container}>
             Repositories
         </div>
     )
