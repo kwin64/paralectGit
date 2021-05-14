@@ -39,10 +39,8 @@ export type UserType = {
     "updated_at": string
 }
 
-//api
-
 export const usersAPI = {
-    getUser(login: string) {
+    getUserApi(login: string | undefined) {
         return instance.get<UserType>(`users/${login}`)
     }
 };
