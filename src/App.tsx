@@ -1,9 +1,10 @@
 import React, {ChangeEvent, useEffect, useState} from 'react';
-import './App.css';
+import s from './App.module.css';
 import {AppRootStateType} from "./store/store";
 import {useDispatch, useSelector} from 'react-redux';
 import Header from "./components/Header/Header";
 import {getInitialUser, getNewUser} from './store/usersReducer';
+import Profile from "./components/Profile/Profile";
 
 function App() {
 
@@ -29,13 +30,11 @@ function App() {
     console.log(value)
 
     return (
-        <div>
+        <div className={s.container}>
             <Header/>
-            <div>
-                {/*<img src={} alt=""/>*/}
-            </div>
-            <input onChange={newUser}/>
-            <button onClick={showUser}>+</button>
+            <Profile/>
+            {/*<input onChange={newUser}/>*/}
+            {/*<button onClick={showUser}>+</button>*/}
         </div>
     )
 }

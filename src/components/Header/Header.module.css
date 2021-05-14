@@ -1,0 +1,37 @@
+.container {
+    background-color: #0064EB;
+    height: 72px;
+    display: flex;
+    border: 1px solid black
+}
+
+.logo {
+    height: 40px;
+    width: 40px;
+    margin-left: 41px;
+}
+
+.searchArea {
+    width: 500px;
+    height: 40px;
+    display: flex;
+    background-color: white;
+    border-radius: 5px;
+}
+
+.logo img {
+    width: 40px;
+    height: 40px;
+}
+
+.searchArea img {
+    width: 20px;
+    height: 20px;
+}
+
+.searchArea input {
+    width: 256px;
+    height: 24px;
+    outline: none;
+    border: none;
+}
