@@ -24,11 +24,18 @@ export const usersReducer = (state: any = initialState, action: ActionsType) => 
 
 export const getUser = (user: UserType) => ({type: 'GET-USER', user})
 
-export const getUserTC = (login: any) => async (dispatch: Dispatch) => {
+export const createProfileUserTC = () => async (dispatch: Dispatch) => {
     try {
-        const res = await usersAPI.getUserApi(login)
+        const res = await usersAPI.myProfileUserApi()
         dispatch(getUser(res.data))
-        console.log(res)
+    } catch (e) {
+        console.log('lasdknas')
+    }
+}
+export const getUserTC = (login: string) => async (dispatch: Dispatch) => {
+    try {
+        const res = await usersAPI.myProfileUserApi()
+        dispatch(getUser(res.data))
     } catch (e) {
         console.log('lasdknas')
     }

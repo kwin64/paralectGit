@@ -1,6 +1,6 @@
 import React, {ChangeEvent, useEffect, useState} from 'react';
 import './App.css';
-import {getUserTC} from './store/usersReducer';
+import {createProfileUserTC} from './store/usersReducer';
 import {AppRootStateType} from "./store/store";
 import {useDispatch, useSelector} from 'react-redux';
 import Header from "./components/Header/Header";
@@ -12,12 +12,15 @@ function App() {
     const [nameUser, setNameUser] = useState<string>('')
     const [value, setValue] = useState<string>('')
 
+    useEffect(()=> {
+        dispatch(createProfileUserTC())
+    },[])
+
     const newUser = (e: ChangeEvent<HTMLInputElement>) => {
         setNameUser(e.target.value)
     }
     const showUser = () => {
         setValue(nameUser)
-        dispatch(getUserTC(value))
     }
     console.log(name)
 
@@ -26,7 +29,7 @@ function App() {
             <Header/>
             <input onChange={newUser}/>
             <button onClick={showUser}>+</button>
-            <span>User:{name}</span>
+            <span>User:</span>
         </div>
     )
 }
