@@ -3,4 +3,13 @@
     width: 292px;
     height: auto;
     margin: 40px auto auto 56px;
+    display: flex;
+    /*justify-content: center;*/
+}
+
+.container > img {
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    border: 1px solid black;
 }

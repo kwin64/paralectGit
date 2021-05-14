@@ -1,15 +1,22 @@
 import React from 'react';
 import s from './Description.module.css'
+import {UserType} from "../../../api/usersApi";
 
-function Description() {
+type PropsDescriptionType = {
+    avatar: string
+    dataUser: UserType
+}
+
+const Description: React.FC<PropsDescriptionType> = props => {
+    const {avatar, dataUser} = props
     return (
         <div className={s.container}>
-            <img src="" alt=""/>avatar
-            <h1></h1>
-            <a>site</a>
+            <img src={avatar} alt=""/>
+            <h1>{dataUser.name}</h1>
+            <a>{dataUser.login}</a>
             <div>
-                <div>followers</div>
-                <div>following</div>
+                <span>{`${dataUser.followers}:followers`}</span>
+                <span>{`${dataUser.following}:following`}</span>
             </div>
         </div>
     )

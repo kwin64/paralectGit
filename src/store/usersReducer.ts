@@ -1,20 +1,14 @@
 import {usersAPI, UserType} from "../api/usersApi";
 import {Dispatch} from "redux";
 
-
-export  type ActionsType = ReturnType<typeof createMyProfile> | ReturnType<typeof getUser>
-
-
-// https://avatars.githubusercontent.com/u/68448616?v=4
-// https://avatars.githubusercontent.com/u/1?v=4
+export  type ActionsType = ReturnType<typeof getUser>
 
 let initialState: UserType[] = []
-
-console.log('state:', initialState)
+console.log(`initialState: ${initialState}`)
 
 export const usersReducer = (state: UserType[] = initialState, action: ActionsType) => {
     switch (action.type) {
-        case 'userReducer/GET-INITIAL-USER' : {
+        case 'userReducer/GET-USER' : {
             return [...state, action.user]
         }
         default:
@@ -22,23 +16,21 @@ export const usersReducer = (state: UserType[] = initialState, action: ActionsTy
     }
 }
 
-export const createMyProfile = (user: UserType) => ({type: 'userReducer/GET-INITIAL-USER', user} as const)
 export const getUser = (user: UserType) => ({type: 'userReducer/GET-USER', user} as const)
 
 export const getInitialUser = (nameUser: string) => async (dispatch: Dispatch) => {
     try {
         const res = await usersAPI.getUserApi(nameUser)
-        dispatch(createMyProfile(res.data))
+        dispatch(getUser(res.data))
     } catch (e) {
-        console.log('lasdknas')
+        console.log('Error')
     }
 }
 export const getNewUser = (nameUser: string) => async (dispatch: Dispatch) => {
     try {
-        // let nameUser = 'kwin6490'
         const res = await usersAPI.getUserApi(nameUser)
         dispatch(getUser(res.data))
     } catch (e) {
-        console.log('lasdknas')
+        console.log('Error')
     }
 }

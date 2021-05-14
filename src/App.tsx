@@ -5,19 +5,25 @@ import {useDispatch, useSelector} from 'react-redux';
 import Header from "./components/Header/Header";
 import {getInitialUser, getNewUser} from './store/usersReducer';
 import Profile from "./components/Profile/Profile";
+import {UserType} from "./api/usersApi";
 
 function App() {
 
     const dispatch = useDispatch();
-    const name = useSelector<AppRootStateType>(store => store.users.find(t => {
-        return t.name
-    }))
+    const name = useSelector<AppRootStateType, Array<UserType>>(store => store.users)
+    const avatar = useSelector<AppRootStateType, string>(state => state.avatar)
+    const dataUser = useSelector<AppRootStateType, UserType>(data => data.users[0])
+
     const [nameUser, setNameUser] = useState<string>('')
     const [value, setValue] = useState<string>('')
 
     useEffect(() => {
         dispatch(getInitialUser('kwin64'))
-    }, [])
+    }, [dataUser])
+
+    // useEffect(() => {
+    //     dispatch(getAvatarUser(68448616))
+    // }, [])
 
     const newUser = (e: ChangeEvent<HTMLInputElement>) => {
         setNameUser(e.target.value)
@@ -27,19 +33,15 @@ function App() {
         dispatch(getNewUser(value))
     }
 
-    // useEffect(() => {
-    //     dispatch(getNewUser(value))
-    // }, [value])
-
-    console.log(name)
-    console.log(value)
-
     return (
         <div className={s.container}>
             <Header/>
-            <Profile/>
-            <input onChange={newUser}/>
-            <button onClick={showUser}>+</button>
+            <Profile avatar={avatar}
+                     dataUser={dataUser}
+            />
+            {/*<input onChange={newUser}/>*/}
+            {/*<button onClick={showUser}>+</button>*/}
+            {/*<span>{JSON.stringify(name)}</span>*/}
         </div>
     )
 }
