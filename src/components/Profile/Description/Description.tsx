@@ -14,7 +14,7 @@ const Description: React.FC<PropsDescriptionType> = props => {
     return (
         <div className={s.container}>
             <img src={dataUser?.avatar_url} alt=""/>
-            <h1>{dataUser?.name}</h1>
+            <h2>{dataUser?.name}</h2>
             <a href={'dataUser.login'}>{dataUser?.login}</a>
             <div className={s.subscribers}>
                 <div className={s.followers}>

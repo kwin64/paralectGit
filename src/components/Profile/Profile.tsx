@@ -12,9 +12,8 @@ const Profile: React.FC<PropsProfileType> = props => {
     const {dataUser} = props
     return (
         <div className={s.container}>
-            <Description dataUser={dataUser}
-            />
-            <Repositories/>
+            <Description dataUser={dataUser}/>
+            <Repositories dataUser={dataUser}/>
         </div>
     )
 }

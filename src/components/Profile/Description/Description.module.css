@@ -6,7 +6,7 @@
     display: flex;
 }
 
-.container > h1 {
+.container > h2 {
     margin-top: 29px;
     border: 1px solid black;
 }

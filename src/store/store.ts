@@ -4,6 +4,7 @@ import {usersReducer} from "./usersReducer";
 
 const rootReducer = combineReducers({
     users: usersReducer,
+    repos: reposReducers
 })
 export const store = createStore(rootReducer, applyMiddleware(thunk))
 
