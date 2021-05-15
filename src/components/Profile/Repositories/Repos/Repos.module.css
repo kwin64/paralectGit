@@ -1,5 +1,23 @@
 .container {
+    /*background-color: #FFFFFF;*/
+    /*margin: 24px 0 auto 32px;*/
+    /*display:inline-block;*/
+    /*display: flex;*/
+    /*flex-direction: column;*/
+    /*justify-content: center;*/
+    /*align-items: flex-start;*/
+    /*padding: 24px 32px;*/
+}
+
+.container > span {
+    border: 1px solid red;
+}
+
+.container > .repo > a {
+    text-decoration: none;
+}
+
+.container > .repo > p {
     border: 1px solid black;
-    width: 877px;
-    margin: auto 56px auto 435px;
+    margin: 16px 0px;
 }

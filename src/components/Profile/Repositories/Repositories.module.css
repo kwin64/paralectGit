@@ -1,5 +1,6 @@
 .container {
     border: 1px solid black;
     width: 877px;
-    margin: auto 56px auto 435px;
+    display: flex;
+    flex-direction: column;
 }
