@@ -10,10 +10,10 @@ const Repos: React.FC<PropsReposType> = props => {
 
     const {repos} = props
 
-    const repo = repos.map(r => <span className={s.repo}>
+    const repo = repos.map(r => <div className={s.repo}>
         <a href={r.html_url}>{r.name}</a>
         <p>{r.description}</p>
-    </span>)
+    </div>)
 
     return (
         <div className={s.container}>

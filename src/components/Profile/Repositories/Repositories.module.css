@@ -1,6 +1,5 @@
 .container {
-    border: 1px solid black;
-    width: 877px;
-    display: flex;
-    flex-direction: column;
+    margin-top: 28px;
+    border: 1px solid darkgoldenrod;
+    width: 930px;
 }

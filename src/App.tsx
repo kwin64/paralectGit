@@ -10,8 +10,8 @@ import {UserType} from "./api/userAPI";
 function App() {
 
     useEffect(() => {
-        dispatch(getInitialUser('harryheman'))
-        dispatch(getRepoUser('harryheman'))
+        dispatch(getInitialUser('mojombo'))
+        dispatch(getRepoUser('mojombo'))
     }, [])
 
     const dispatch = useDispatch();

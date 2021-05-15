@@ -12,9 +12,7 @@ const Repositories: React.FC<PropsRepositoriesType> = props => {
     return (
         <div className={s.container}>
             <h1>Repositories ({repos?.length})</h1>
-            <div className={s.repoArea}>
-                <Repos repos={repos}/>
-            </div>
+            <Repos repos={repos}/>
         </div>
     )
 }
