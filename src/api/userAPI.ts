@@ -5,6 +5,10 @@ const instance = axios.create({
 })
 
 export type UserType = {
+    UserDescription: UserDescriptionType,
+    Repos: Array<RepoType>
+}
+export type UserDescriptionType = {
     "login": string
     "id": number
     "node_id": string
@@ -38,7 +42,6 @@ export type UserType = {
     "created_at": string
     "updated_at": string
 }
-
 export type RepoType = {
     "id": number
     "node_id": string
@@ -135,11 +138,11 @@ export type RepoType = {
 }
 
 
-export const usersAPI = {
-    getUserApi(nameUser: string) {
-        return instance.get<UserType>(`users/${nameUser}`)
+export const userAPI = {
+    getUserData(nameUser: string) {
+        return instance.get<UserDescriptionType>(`users/${nameUser}`)
     },
-    getReposApi(nameUser: string) {
-        return instance.get<RepoType>(`users/${nameUser}/repos`)
+    getRepos(nameUser: string) {
+        return instance.get<Array<RepoType>>(`users/${nameUser}/repos`)
     }
 };

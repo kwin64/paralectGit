@@ -1,19 +1,19 @@
 import React from 'react';
 import s from './Repositories.module.css'
 import Repos from "./Repos/Repos";
-import {UserType} from "../../../api/usersApi";
+import {RepoType} from "../../../api/userAPI";
 
 type PropsRepositoriesType = {
-    dataUser: UserType
+    repos: Array<RepoType>
 }
 
 const Repositories: React.FC<PropsRepositoriesType> = props => {
-    const {dataUser} = props
+    const {repos} = props
     return (
         <div className={s.container}>
-            <h1>Repositories ({dataUser?.repos_url})</h1>
+            <h1>Repositories ({repos?.length})</h1>
             <div>
-                <Repos dataUser={dataUser}/>
+                <Repos repos={repos}/>
             </div>
         </div>
     )

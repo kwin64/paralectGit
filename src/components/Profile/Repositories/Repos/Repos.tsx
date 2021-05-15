@@ -1,17 +1,21 @@
 import React from 'react';
 import s from './Repos.module.css'
-import {UserType} from "../../../../api/usersApi";
+import {RepoType, UserType} from "../../../../api/userAPI";
 
 type PropsReposType = {
-    dataUser: UserType
+    repos: Array<RepoType>
 }
 
 const Repos: React.FC<PropsReposType> = props => {
-    const {dataUser} = props
+    const {repos} = props
 
-    const repo = dataUser?.repos_url
+    // const repo = repos?.map(r =>
+    // return <div>
+    //
+    //     </div>
+    // )
 
-    console.log(repo)
+    // console.log({repo})
     return (
         <div className={s.container}>
 
