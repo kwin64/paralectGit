@@ -1,4 +1,6 @@
 .container {
+    background-color: #F9F9F9;
+    height: auto;
     display: flex;
     flex-direction: row;
 }

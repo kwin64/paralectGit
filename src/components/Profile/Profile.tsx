@@ -5,16 +5,14 @@ import s from './Profile.module.css'
 import {UserType} from "../../api/usersApi";
 
 type PropsProfileType = {
-    avatar: string
-    dataUser:UserType
+    dataUser: UserType
 }
 
 const Profile: React.FC<PropsProfileType> = props => {
-    const {avatar,dataUser} = props
+    const {dataUser} = props
     return (
         <div className={s.container}>
-            <Description avatar={avatar}
-                         dataUser={dataUser}
+            <Description dataUser={dataUser}
             />
             <Repositories/>
         </div>

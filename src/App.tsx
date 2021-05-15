@@ -9,21 +9,18 @@ import {UserType} from "./api/usersApi";
 
 function App() {
 
+    useEffect(() => {
+        dispatch(getInitialUser('kwin64'))
+    }, [])
+
     const dispatch = useDispatch();
     const name = useSelector<AppRootStateType, Array<UserType>>(store => store.users)
-    const avatar = useSelector<AppRootStateType, string>(state => state.avatar)
     const dataUser = useSelector<AppRootStateType, UserType>(data => data.users[0])
+
+    debugger
 
     const [nameUser, setNameUser] = useState<string>('')
     const [value, setValue] = useState<string>('')
-
-    useEffect(() => {
-        dispatch(getInitialUser('kwin64'))
-    }, [dataUser])
-
-    // useEffect(() => {
-    //     dispatch(getAvatarUser(68448616))
-    // }, [])
 
     const newUser = (e: ChangeEvent<HTMLInputElement>) => {
         setNameUser(e.target.value)
@@ -36,9 +33,7 @@ function App() {
     return (
         <div className={s.container}>
             <Header/>
-            <Profile avatar={avatar}
-                     dataUser={dataUser}
-            />
+            <Profile dataUser={dataUser}/>
             {/*<input onChange={newUser}/>*/}
             {/*<button onClick={showUser}>+</button>*/}
             {/*<span>{JSON.stringify(name)}</span>*/}

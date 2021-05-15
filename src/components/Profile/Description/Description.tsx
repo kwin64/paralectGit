@@ -1,22 +1,28 @@
 import React from 'react';
 import s from './Description.module.css'
 import {UserType} from "../../../api/usersApi";
+import followersIcon from '../../../common/assets/followersIcon.png'
+import followingIcon from '../../../common/assets/followingIcon.png'
+
 
 type PropsDescriptionType = {
-    avatar: string
     dataUser: UserType
 }
 
 const Description: React.FC<PropsDescriptionType> = props => {
-    const {avatar, dataUser} = props
+    const {dataUser} = props
     return (
         <div className={s.container}>
-            <img src={avatar} alt=""/>
-            <h1>{dataUser.name}</h1>
-            <a>{dataUser.login}</a>
-            <div>
-                <span>{`${dataUser.followers}:followers`}</span>
-                <span>{`${dataUser.following}:following`}</span>
+            <img src={dataUser?.avatar_url} alt=""/>
+            <h1>{dataUser?.name}</h1>
+            <a href={'dataUser.login'}>{dataUser?.login}</a>
+            <div className={s.subscribers}>
+                <div className={s.followers}>
+                    <span><img src={followersIcon}/>{`${dataUser?.followers} followers`}</span>
+                </div>
+                <div className={s.following}>
+                    <span><img src={followingIcon}/>{`${dataUser?.following} following`}</span>
+                </div>
             </div>
         </div>
     )

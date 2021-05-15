@@ -4,7 +4,16 @@
     height: auto;
     margin: 40px auto auto 56px;
     display: flex;
-    /*justify-content: center;*/
+}
+
+.container > h1 {
+    margin-top: 29px;
+    border: 1px solid black;
+}
+
+.container > a {
+    border: 1px solid black;
+    margin-top: 12px;
 }
 
 .container > img {
@@ -12,4 +21,39 @@
     height: 280px;
     border-radius: 50%;
     border: 1px solid black;
+}
+
+.subscribers {
+    margin-top: 25px;
+    display: flex;
+    flex-direction: row;
+    width: 292px;
+    height: 24px;
+    border: 1px solid black;
+    font-size: 16px;
+    justify-content: space-between;
+}
+
+.subscribers > .followers {
+    width: 100px;
+    border: 1px solid black;
+}
+
+.subscribers > .following {
+    width: 100px;
+    border: 1px solid black;
+    justify-content: center;
+}
+
+.followers > span > img {
+    width: 22px;
+    height: 14px;
+    border: 1px solid black;
+}
+
+.following > span > img {
+    width: 18px;
+    height: 18px;
+    border: 1px solid black;
+
 }

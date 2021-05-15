@@ -47,7 +47,4 @@ export const usersAPI = {
     getUserApi(nameUser: string) {
         return instance.get<UserType>(`users/${nameUser}`)
     },
-    getAvatarApi(idUser: number) {
-        return axios.get<AvatarType>(`https://avatars.githubusercontent.com/u/${idUser}?v=4`)
-    }
 };
