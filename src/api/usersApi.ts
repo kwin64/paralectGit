@@ -39,7 +39,7 @@ export type UserType = {
     "updated_at": string
 }
 
-export type RepoType = [{
+export type RepoType = {
     "id": number
     "node_id": string
     "name": string
@@ -132,7 +132,7 @@ export type RepoType = [{
     "open_issues": number
     "watchers": number
     "default_branch": string
-}]
+}
 
 
 export const usersAPI = {

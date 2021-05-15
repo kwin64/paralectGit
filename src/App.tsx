@@ -6,15 +6,16 @@ import Header from "./components/Header/Header";
 import {getInitialUser, getNewUser} from './store/usersReducer';
 import Profile from "./components/Profile/Profile";
 import {UserType} from "./api/usersApi";
+import {getRepos} from "./store/reposReducer";
 
 function App() {
 
     useEffect(() => {
         dispatch(getInitialUser('kwin64'))
+        dispatch(getRepos('kwin64'))
     }, [])
 
     const dispatch = useDispatch();
-    const name = useSelector<AppRootStateType, Array<UserType>>(store => store.users)
     const dataUser = useSelector<AppRootStateType, UserType>(data => data.users[0])
 
     debugger

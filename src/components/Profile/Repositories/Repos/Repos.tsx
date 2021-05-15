@@ -9,7 +9,7 @@ type PropsReposType = {
 const Repos: React.FC<PropsReposType> = props => {
     const {dataUser} = props
 
-    const repo = dataUser.repos_url
+    const repo = dataUser?.repos_url
 
     console.log(repo)
     return (
