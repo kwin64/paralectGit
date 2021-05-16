@@ -10,7 +10,7 @@ let initialState: UserType = {
     Repos: []
 }
 
-export const userData = (state: UserType = initialState, action: ActionsType): UserType => {
+export const userDataReducer = (state: UserType = initialState, action: ActionsType): UserType => {
     switch (action.type) {
         case 'userReducer/GET-USER' :
             return {...state, UserDescription: action.user}
@@ -31,19 +31,19 @@ export const getInitialUser = (nameUser: string) => async (dispatch: Dispatch) =
         console.log('Error')
     }
 }
-// export const getNewUser = (nameUser: string) => async (dispatch: Dispatch) => {
-//     try {
-//         const res = await userAPI.getUserData(nameUser)
-//         dispatch(getUser(res.data))
-//     } catch (e) {
-//         console.log('Error')
-//     }
-// }
+export const getNewUser = (nameUser: string) => async (dispatch: Dispatch) => {
+    try {
+        const res = await userAPI.getUserData(nameUser)
+        dispatch(getUser(res.data))
+        debugger
+    } catch (e) {
+        console.log('Error')
+    }
+}
 export const getRepoUser = (nameUser: string) => async (dispatch: Dispatch) => {
     try {
         const res = await userAPI.getRepos(nameUser)
         dispatch(getRepo(res.data))
-        debugger
     } catch (e) {
         console.log('Error')
     }
