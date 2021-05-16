@@ -1,10 +1,27 @@
-import React from 'react';
+import React, {ChangeEvent, KeyboardEvent, useState} from 'react';
 import git from '../../common/assets/github.png'
 import search from '../../common/assets/search.png'
 import s from './Header.module.css';
 
 
-function Header() {
+type PropsHeaderType = {
+    updateNewUser: (user: string) => void
+    addNewUser: () => void
+}
+
+const Header: React.FC<PropsHeaderType> = props => {
+
+    const {updateNewUser, addNewUser} = props
+
+    const onKeyPressHandler = (e: KeyboardEvent<HTMLInputElement>) => {
+        if (e.key === 'Enter') {
+            addNewUser()
+        }
+    }
+    const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
+        updateNewUser(e.currentTarget.value)
+    }
+
     return (
         <div className={s.container}>
             <div className={s.logo}>
@@ -12,7 +29,9 @@ function Header() {
             </div>
             <div className={s.searchArea}>
                 <img src={search}/>
-                <input/>
+                <input onKeyPress={onKeyPressHandler}
+                       onChange={onChangeHandler}
+                />
             </div>
         </div>
     )

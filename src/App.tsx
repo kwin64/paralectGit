@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {ChangeEvent, KeyboardEvent, useEffect, useState} from 'react';
 import s from './App.module.css';
 import {AppRootStateType} from "./store/store";
 import {useDispatch, useSelector} from 'react-redux';
@@ -9,17 +9,30 @@ import {UserType} from "./api/userAPI";
 
 function App() {
 
+    const [user, setUser] = useState<string>('') //state
+    const [newValue, setNewValue] = useState<string>('')//onChange
+
+    const updateNewUser = (user: string) => {
+        setNewValue(user)
+    }
+    const addNewUser = () => {
+        setUser(newValue)
+    }
+
     useEffect(() => {
         dispatch(getInitialUser('mojombo'))
         dispatch(getRepoUser('mojombo'))
     }, [])
+
 
     const dispatch = useDispatch();
     const dataUser = useSelector<AppRootStateType, UserType>(data => data.userData)
 
     return (
         <div className={s.container}>
-            <Header/>
+            <Header updateNewUser={updateNewUser}
+                    addNewUser={addNewUser}
+            />
             <Profile dataUser={dataUser}/>
         </div>
     )
