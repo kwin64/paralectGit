@@ -18,10 +18,12 @@ const Description: React.FC<PropsDescriptionType> = props => {
             <a href={'dataUser.login'}>{userDescription?.login}</a>
             <div className={s.subscribers}>
                 <div className={s.followers}>
-                    <span><img src={followersIcon}/>{`${userDescription?.followers} followers`}</span>
+                    <img src={followersIcon}/>
+                    <p>{`${userDescription?.followers} followers`}</p>
                 </div>
                 <div className={s.following}>
-                    <span><img src={followingIcon}/>{`${userDescription?.following} following`}</span>
+                    <img src={followingIcon}/>
+                    <p>{`${userDescription?.following} following`}</p>
                 </div>
             </div>
         </div>

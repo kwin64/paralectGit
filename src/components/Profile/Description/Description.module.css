@@ -1,5 +1,4 @@
 .container {
-    border: 1px solid black;
     width: 292px;
     height: auto;
     margin: 40px auto auto 56px;
@@ -8,52 +7,54 @@
 
 .container > h2 {
     margin-top: 29px;
-    border: 1px solid black;
 }
 
 .container > a {
-    border: 1px solid black;
     margin-top: 12px;
+    text-decoration: none;
 }
 
 .container > img {
     width: 280px;
     height: 280px;
     border-radius: 50%;
-    border: 1px solid black;
 }
 
 .subscribers {
-    margin-top: 25px;
     display: flex;
     flex-direction: row;
     width: 292px;
-    height: 24px;
-    border: 1px solid black;
-    font-size: 16px;
-    justify-content: space-between;
+    margin: 25px 0 0;
 }
 
 .subscribers > .followers {
-    width: 100px;
-    border: 1px solid black;
+    display: flex;
+    flex-direction: row;
+    margin-left: 0;
+    width: auto;
 }
 
 .subscribers > .following {
-    width: 100px;
-    border: 1px solid black;
-    justify-content: center;
+    display: flex;
+    flex-direction: row;
+    margin-left: 0;
+    width: auto;
 }
 
-.followers > span > img {
-    width: 22px;
-    height: 14px;
-    border: 1px solid black;
+.followers > img {
+    width: auto;
+    margin-right: 5px;
 }
 
-.following > span > img {
-    width: 18px;
-    height: 18px;
-    border: 1px solid black;
+.following > img {
+    width: auto;
+    margin-right: 5px;
+}
 
+.following > p {
+    width: auto;
+}
+
+.followers > p {
+    width: auto;
 }

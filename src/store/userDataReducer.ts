@@ -35,7 +35,6 @@ export const getNewUser = (nameUser: string) => async (dispatch: Dispatch) => {
     try {
         const res = await userAPI.getUserData(nameUser)
         dispatch(getUser(res.data))
-        debugger
     } catch (e) {
         console.log('Error')
     }
