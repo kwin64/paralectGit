@@ -4,10 +4,6 @@ const instance = axios.create({
     baseURL: 'https://api.github.com/',
 })
 
-export type UserType = {
-    UserDescription: UserDescriptionType,
-    Repos: Array<RepoType>
-}
 export type UserDescriptionType = {
     "login": string
     "id": number
