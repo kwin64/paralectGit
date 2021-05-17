@@ -3,20 +3,26 @@ import Repositories from "./Repositories/Repositories";
 import Description from "./Description/Description";
 import s from './Profile.module.css'
 import Pagination from "./Pagination/Pagination";
-import {UserType} from "../../store/userDataReducer";
+import {PaginationType, UserType} from "../../store/userDataReducer";
+import {RepoType} from "../../api/userAPI";
 
 type PropsProfileType = {
-    dataUser: UserType,
-    pages: Array<number>
+    dataUser: UserType
+    changePage: (page: number) => void
+    totalRepos: Array<RepoType>
+    pagination: PaginationType
 }
 
 const Profile: React.FC<PropsProfileType> = props => {
-    const {dataUser, pages} = props
+    const {dataUser, totalRepos, changePage, pagination} = props
     return (
         <div className={s.container}>
             <Description userDescription={dataUser.UserDescription}/>
             <Repositories repos={dataUser.Repos}/>
-            <Pagination pages={pages}/>
+            <Pagination totalRepos={totalRepos}
+                        changePage={changePage}
+                        pagination={pagination}
+            />
         </div>
     )
 }

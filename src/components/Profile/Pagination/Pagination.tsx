@@ -1,19 +1,33 @@
 import React from 'react';
 import s from './Pagination.module.css'
+import {PaginationType} from "../../../store/userDataReducer";
+import {RepoType} from "../../../api/userAPI";
 
 type PropsPaginationType = {
-    pages: Array<number>
+    totalRepos: Array<RepoType>
+    changePage: (page: number) => void
+    pagination: PaginationType
 }
 
 const Pagination: React.FC<PropsPaginationType> = props => {
 
-    const {pages} = props
+    const {totalRepos, changePage, pagination} = props
+
+    let pagesCount = Math.ceil(totalRepos.length / pagination.pagesCount)
+
+    debugger
+    let pages = []
+    for (let i = 1; i <= pagesCount; i++) {
+        pages.push(i)
+    }
 
     return (
         <div className={s.container}>
-            {pages.map((page: number, index: number) => <span key={index}
-                                                              className={s.page}
-                                                              onClick={()=> dispatch(currentPage(page))}
+            {pages.map(page => <span key={page}
+                                     className={pagination.currentPage === page ? s.activePage : s.page}
+                                     onClick={() => {
+                                         changePage(page)
+                                     }}
             >{page}</span>)}
         </div>
     )
