@@ -1,4 +1,4 @@
-import React, {ChangeEvent, KeyboardEvent, useState} from 'react';
+import React, {ChangeEvent, KeyboardEvent} from 'react';
 import git from '../../common/assets/github.png'
 import search from '../../common/assets/search.png'
 import s from './Header.module.css';
@@ -21,6 +21,9 @@ const Header: React.FC<PropsHeaderType> = props => {
     const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
         updateNewUser(e.currentTarget.value)
     }
+    const onClickImgSearchHandler = () => {
+        addNewUser()
+    }
 
     return (
         <div className={s.container}>
@@ -28,7 +31,9 @@ const Header: React.FC<PropsHeaderType> = props => {
                 <a href="https://github.com/kwin64"><img src={git}/></a>
             </div>
             <div className={s.searchArea}>
-                <img src={search}/>
+                <img src={search}
+                     onClick={onClickImgSearchHandler}
+                />
                 <input onKeyPress={onKeyPressHandler}
                        onChange={onChangeHandler}
                 />

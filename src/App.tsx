@@ -17,13 +17,16 @@ function App() {
     }
     const addNewUser = () => {
         setUser(newValue)
-        dispatch(getNewUser(user))
-        dispatch(getRepoUser(user))
     }
     useEffect(() => {
         dispatch(getInitialUser('mojombo'))
         dispatch(getRepoUser('mojombo'))
     }, [])
+
+    useEffect(() => {
+        dispatch(getNewUser(user))
+        dispatch(getRepoUser(user))
+    },[user])
 
 
     const dispatch = useDispatch();
