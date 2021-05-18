@@ -138,7 +138,7 @@ export const userAPI = {
     getUserData(nameUser: string) {
         return instance.get<UserDescriptionType>(`users/${nameUser}`)
     },
-    getRepos(nameUser: string, currentPage: number, pagesCount: number) {
-        return instance.get<Array<RepoType>>(`users/${nameUser}/repos?page=${currentPage}&per_page=${pagesCount}`)
+    getRepos(nameUser: string, currentPage: number, pageSize: number) {
+        return instance.get<Array<RepoType>>(`users/${nameUser}/repos?page=${currentPage}&per_page=${pageSize}`)
     }
 };

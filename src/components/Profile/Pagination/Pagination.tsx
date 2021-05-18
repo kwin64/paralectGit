@@ -4,7 +4,7 @@ import {PaginationType} from "../../../store/userDataReducer";
 import {RepoType} from "../../../api/userAPI";
 
 type PropsPaginationType = {
-    totalRepos: Array<RepoType>
+    totalRepos: number
     changePage: (page: number) => void
     pagination: PaginationType
 }
@@ -13,9 +13,8 @@ const Pagination: React.FC<PropsPaginationType> = props => {
 
     const {totalRepos, changePage, pagination} = props
 
-    let pagesCount = Math.ceil(totalRepos.length / pagination.pagesCount)
+    let pagesCount = Math.ceil(totalRepos / pagination.pageSize)
 
-    debugger
     let pages = []
     for (let i = 1; i <= pagesCount; i++) {
         pages.push(i)

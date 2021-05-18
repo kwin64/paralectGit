@@ -19,7 +19,7 @@ const Profile: React.FC<PropsProfileType> = props => {
         <div className={s.container}>
             <Description userDescription={dataUser.UserDescription}/>
             <Repositories repos={dataUser.Repos}/>
-            <Pagination totalRepos={totalRepos}
+            <Pagination totalRepos={dataUser.UserDescription.public_repos}
                         changePage={changePage}
                         pagination={pagination}
             />
