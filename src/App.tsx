@@ -12,6 +12,7 @@ import {
     UserType
 } from './store/userDataReducer';
 import Profile from "./components/Profile/Profile";
+import InitialPage from "./components/InitialPage/InitialPage";
 
 function App() {
 
@@ -50,6 +51,9 @@ function App() {
             <Profile dataUser={dataUser}
                      changePage={changePage}
                      pagination={pagination}
+            />
+            <InitialPage updateNewUser={updateNewUser}
+                         addNewUser={addNewUser}
             />
         </div>
     )
