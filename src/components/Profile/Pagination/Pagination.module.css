@@ -1,15 +1,25 @@
 .container {
-    border: 1px solid yellow;
+    border: 1px solid black;
+    height: 5vh;
     display: flex;
     flex-direction: row;
+    justify-content: flex-end
 }
+
+.container > div {
+    text-align: center;
+    width: 20px;
+    height: 20px;
+    border: 1px solid #0064EB;
+    margin: 5px;
+}
+
 .activePage {
-    font-size: 60px;
+    /*font-size: 30px;*/
     cursor: pointer;
-    margin-left: 20px;
 }
-.page{
-    font-size: 40px;
+
+.page {
+    /*font-size: 20px;*/
     cursor: pointer;
-    margin-left: 20px;
 }

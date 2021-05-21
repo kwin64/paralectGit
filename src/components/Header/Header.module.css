@@ -1,8 +1,7 @@
 .container {
     background-color: #0064EB;
-    height: 72px;
+    height: 7vh;
     display: flex;
-    border: 1px solid black
 }
 
 .logo {
