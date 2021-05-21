@@ -12,7 +12,9 @@ type PropsProfileType = {
 }
 
 const Profile: React.FC<PropsProfileType> = props => {
+
     const {dataUser, changePage, pagination} = props
+
     return (
         <div className={s.container}>
             <Description userDescription={dataUser.UserDescription}/>

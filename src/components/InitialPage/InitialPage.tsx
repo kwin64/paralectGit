@@ -1,13 +1,14 @@
 import React from 'react';
-import Header from "../Header/Header";
+import {Header} from "../Header/Header";
 import s from './InitialPage.module.css';
+import {InitialProfile} from './InitialProfile/InitialProfile';
 
 type PropsInitialPageType = {
     updateNewUser: (user: string) => void
     addNewUser: () => void
 }
 
-const InitialPage: React.FC<PropsInitialPageType> = props => {
+export const InitialPage: React.FC<PropsInitialPageType> = props => {
 
     const {updateNewUser, addNewUser} = props
 
@@ -16,8 +17,8 @@ const InitialPage: React.FC<PropsInitialPageType> = props => {
             <Header updateNewUser={updateNewUser}
                     addNewUser={addNewUser}
             />
+            <InitialProfile/>
         </div>
     )
 }
 
-export default InitialPage;

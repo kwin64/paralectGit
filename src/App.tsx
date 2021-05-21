@@ -2,7 +2,6 @@ import React, {useEffect, useState} from 'react';
 import s from './App.module.css';
 import {AppRootStateType} from "./store/store";
 import {useDispatch, useSelector} from 'react-redux';
-import Header from "./components/Header/Header";
 import {
     getInitialUser,
     getNewUser,
@@ -11,8 +10,8 @@ import {
     setCurrentPage,
     UserType
 } from './store/userDataReducer';
-import Profile from "./components/Profile/Profile";
-import InitialPage from "./components/InitialPage/InitialPage";
+import {InitialPage} from "./components/InitialPage/InitialPage";
+import {MainPage} from './components/MainPage/MainPage';
 
 function App() {
 
@@ -45,16 +44,15 @@ function App() {
 
     return (
         <div className={s.container}>
-            <Header updateNewUser={updateNewUser}
-                    addNewUser={addNewUser}
+            <MainPage updateNewUser={updateNewUser}
+                      addNewUser={addNewUser}
+                      dataUser={dataUser}
+                      changePage={changePage}
+                      pagination={pagination}
             />
-            <Profile dataUser={dataUser}
-                     changePage={changePage}
-                     pagination={pagination}
-            />
-            <InitialPage updateNewUser={updateNewUser}
-                         addNewUser={addNewUser}
-            />
+            {/*<InitialPage updateNewUser={updateNewUser}*/}
+            {/*             addNewUser={addNewUser}*/}
+            {/*/>*/}
         </div>
     )
 }

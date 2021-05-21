@@ -9,7 +9,7 @@ type PropsHeaderType = {
     addNewUser: () => void
 }
 
-const Header: React.FC<PropsHeaderType> = props => {
+export const Header: React.FC<PropsHeaderType> = props => {
 
     const {updateNewUser, addNewUser} = props
 
@@ -42,4 +42,3 @@ const Header: React.FC<PropsHeaderType> = props => {
     )
 }
 
-export default Header;
