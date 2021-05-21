@@ -11,16 +11,18 @@
 }
 
 .searchArea {
+    margin-left: -750px;
     width: 500px;
     height: 40px;
     display: flex;
+    flex-direction: row;
     background-color: white;
     border-radius: 5px;
 }
 
 .logo img {
-    width: 40px;
-    height: 40px;
+    width: auto;
+    height: auto;
 }
 
 .searchArea img {
@@ -29,8 +31,8 @@
 }
 
 .searchArea input {
-    width: 256px;
-    height: 24px;
+    width: 95%;
     outline: none;
+    height: 90%;
     border: none;
 }
