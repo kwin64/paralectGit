@@ -4,8 +4,6 @@ import {Dispatch} from "redux";
 export  type ActionsType = ReturnType<typeof getUser>
     | ReturnType<typeof getRepo>
     | ReturnType<typeof setCurrentPage>
-    | ReturnType<typeof setPagesCount>
-
 
 export type UserType = {
     UserDescription: UserDescriptionType,
@@ -18,7 +16,7 @@ let initialState: UserType = {
     Repos: [],
     Pagination: {
         currentPage: 1,
-        pageSize: 10,
+        pageSize: 4,
     }
 }
 export type PaginationType = {
@@ -46,14 +44,6 @@ export const userDataReducer = (state: UserType = initialState, action: ActionsT
                     currentPage: action.currentPage
                 }
             }
-        case "reposReducer/SET_PAGES_COUNT":
-            return {
-                ...state,
-                Pagination: {
-                    ...state.Pagination,
-                    pageSize: action.pageSize
-                }
-            }
         default:
             return state
     }
@@ -61,7 +51,6 @@ export const userDataReducer = (state: UserType = initialState, action: ActionsT
 export const getUser = (user: UserDescriptionType) => ({type: 'userReducer/GET_USER', user} as const)
 export const getRepo = (repos: Array<RepoType>) => ({type: 'reposReducer/GET_REPOS', repos} as const)
 export const setCurrentPage = (currentPage: number) => ({type: 'reposReducer/SET_CURRENT_PAGE', currentPage,} as const)
-export const setPagesCount = (pageSize: number) => ({type: 'reposReducer/SET_PAGES_COUNT', pageSize,} as const)
 
 export const getInitialUser = (nameUser: string) => async (dispatch: Dispatch) => {
     try {

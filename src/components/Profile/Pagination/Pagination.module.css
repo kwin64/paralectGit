@@ -1,8 +1,10 @@
 .container {
     border: 1px solid yellow;
+    display: flex;
+    flex-direction: row;
 }
 .activePage {
-    font-size: 50px;
+    font-size: 60px;
     cursor: pointer;
     margin-left: 20px;
 }

@@ -2,3 +2,8 @@
     width: 1366px;
     margin: auto;
 }
+
+.container {
+    height: 100vh;
+    border: 1px solid slateblue;
+}

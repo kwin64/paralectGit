@@ -12,7 +12,6 @@ import {
     UserType
 } from './store/userDataReducer';
 import Profile from "./components/Profile/Profile";
-import {RepoType} from "./api/userAPI";
 
 function App() {
 
@@ -20,16 +19,14 @@ function App() {
     const [newValue, setNewValue] = useState<string>('')
 
 
-
     const dispatch = useDispatch();
     const dataUser = useSelector<AppRootStateType, UserType>(data => data.userDataReducer)
     const pagination = useSelector<AppRootStateType, PaginationType>(data => data.userDataReducer.Pagination)
-    const totalRepos = useSelector<AppRootStateType, Array<RepoType>>(data => data.userDataReducer.Repos)
+
     useEffect(() => {
         dispatch(getNewUser(user))
         dispatch(getRepoUser(user, pagination.currentPage, pagination.pageSize))
     }, [user])
-
     useEffect(() => {
         dispatch(getInitialUser('mojombo'))
         dispatch(getRepoUser('mojombo', pagination.currentPage, pagination.pageSize))
@@ -45,15 +42,12 @@ function App() {
         dispatch(setCurrentPage(page))
     }
 
-
-
     return (
         <div className={s.container}>
             <Header updateNewUser={updateNewUser}
                     addNewUser={addNewUser}
             />
             <Profile dataUser={dataUser}
-                     totalRepos={totalRepos}
                      changePage={changePage}
                      pagination={pagination}
             />
