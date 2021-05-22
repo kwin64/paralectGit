@@ -17,11 +17,6 @@ function App() {
     const dataUser = useSelector<AppRootStateType, UserType>(data => data.userDataReducer)
     const pagination = useSelector<AppRootStateType, PaginationType>(data => data.userDataReducer.Pagination)
 
-    useEffect(() => {
-        dispatch(getNewUser(user))
-        dispatch(getRepoUser(user, pagination.currentPage, pagination.pageSize))
-    }, [pagination, user])
-
     const updateNewUser = (user: string) => {
         setNewValue(user)
     }
@@ -35,17 +30,18 @@ function App() {
     return (
         <div className={s.container}>
             <Switch>
-                <Route exact path={'/'} render={() =>
-                    <InitialPage updateNewUser={updateNewUser}
-                                 addNewUser={addNewUser}
-                    />
-                }/>
-                <Route exact path={`/users/${user}`} render={() =>
+                <Route exact path={`/user/${user}`} render={() =>
                     <MainPage updateNewUser={updateNewUser}
                               addNewUser={addNewUser}
                               dataUser={dataUser}
                               changePage={changePage}
                               pagination={pagination}
+                              user={user}
+                    />
+                }/>
+                <Route path={'/initial'} render={() =>
+                    <InitialPage updateNewUser={updateNewUser}
+                                 addNewUser={addNewUser}
                     />
                 }/>
                 <Route path={'/unknown'} render={() =>
@@ -53,7 +49,7 @@ function App() {
                                addNewUser={addNewUser}
                     />
                 }/>
-                <Redirect from={'*'} to={'/unknown'}/>
+                <Redirect from={'*'} to={'unknown'}/>
             </Switch>
             {/*<Preloader/>*/}
         </div>

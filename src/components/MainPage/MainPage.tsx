@@ -1,8 +1,9 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {Header} from "../Header/Header";
 import s from './MainPage.module.css';
 import Profile from "../Profile/Profile";
-import {PaginationType, UserType} from "../../store/userDataReducer";
+import {getNewUser, getRepoUser, PaginationType, UserType} from "../../store/userDataReducer";
+import {useDispatch} from "react-redux";
 
 type PropsMainPageType = {
     updateNewUser: (user: string) => void
@@ -10,11 +11,18 @@ type PropsMainPageType = {
     dataUser: UserType
     changePage: (page: number) => void
     pagination: PaginationType
+    user: string
 }
 
 export const MainPage: React.FC<PropsMainPageType> = props => {
 
-    const {updateNewUser, addNewUser, dataUser, changePage, pagination} = props
+    const {updateNewUser, addNewUser, dataUser, changePage, pagination,user} = props
+    const dispatch = useDispatch()
+
+    useEffect(() => {
+        dispatch(getNewUser(user))
+        dispatch(getRepoUser(user, pagination.currentPage, pagination.pageSize))
+    }, [pagination, user])
 
     return (
         <div className={s.container}>

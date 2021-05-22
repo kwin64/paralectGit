@@ -16,6 +16,7 @@ export const Header: React.FC<PropsHeaderType> = props => {
     const onKeyPressHandler = (e: KeyboardEvent<HTMLInputElement>) => {
         if (e.key === 'Enter') {
             addNewUser()
+            // updateNewUser('') ???
         }
     }
     const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
