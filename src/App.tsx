@@ -12,7 +12,7 @@ import {
 } from './store/userDataReducer';
 import {InitialPage} from "./components/InitialPage/InitialPage";
 import {MainPage} from './components/MainPage/MainPage';
-import {Route, Switch} from 'react-router-dom';
+import {Redirect, Route, Switch} from 'react-router-dom';
 import {EmptyPage} from "./components/EmptyPage/EmptyPage";
 
 function App() {
@@ -48,24 +48,25 @@ function App() {
     return (
         <div className={s.container}>
             <Switch>
-                {/*<Route exact path={'/kwin64'} render={() =>*/}
-                {/*    <MainPage updateNewUser={updateNewUser}*/}
-                {/*              addNewUser={addNewUser}*/}
-                {/*              dataUser={dataUser}*/}
-                {/*              changePage={changePage}*/}
-                {/*              pagination={pagination}*/}
-                {/*    />*/}
-                {/*}/>*/}
-                {/*<Route path={'/'} render={() =>*/}
-                {/*    <InitialPage updateNewUser={updateNewUser}*/}
-                {/*                 addNewUser={addNewUser}*/}
-                {/*    />*/}
-                {/*}/>*/}
+                <Route exact path={'/kwin64'} render={() =>
+                    <MainPage updateNewUser={updateNewUser}
+                              addNewUser={addNewUser}
+                              dataUser={dataUser}
+                              changePage={changePage}
+                              pagination={pagination}
+                    />
+                }/>
                 <Route path={'/'} render={() =>
-                    <EmptyPage updateNewUser={updateNewUser}
+                    <InitialPage updateNewUser={updateNewUser}
                                  addNewUser={addNewUser}
                     />
                 }/>
+                <Route path={'/unknowm'} render={() =>
+                    <EmptyPage updateNewUser={updateNewUser}
+                               addNewUser={addNewUser}
+                    />
+                }/>
+                <Redirect from={'*'} to={'/unknowm'}/>
             </Switch>
         </div>
     )
