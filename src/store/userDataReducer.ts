@@ -52,15 +52,7 @@ export const getUser = (user: UserDescriptionType) => ({type: 'userReducer/GET_U
 export const getRepo = (repos: Array<RepoType>) => ({type: 'reposReducer/GET_REPOS', repos} as const)
 export const setCurrentPage = (currentPage: number) => ({type: 'reposReducer/SET_CURRENT_PAGE', currentPage,} as const)
 
-export const getInitialUser = (nameUser: string) => async (dispatch: Dispatch) => {
-    try {
-        const res = await userAPI.getUserData(nameUser)
-        debugger
-        dispatch(getUser(res.data))
-    } catch (e) {
-        console.log('Error')
-    }
-}
+
 export const getNewUser = (nameUser: string) => async (dispatch: Dispatch) => {
     try {
         const res = await userAPI.getUserData(nameUser)
