@@ -36,6 +36,7 @@ export const Header: React.FC<PropsHeaderType> = props => {
                 />
                 <input onKeyPress={onKeyPressHandler}
                        onChange={onChangeHandler}
+                       placeholder='Enter GitHub username'
                 />
             </div>
         </div>

@@ -44,15 +44,15 @@ function App() {
 
     return (
         <div className={s.container}>
-            <MainPage updateNewUser={updateNewUser}
-                      addNewUser={addNewUser}
-                      dataUser={dataUser}
-                      changePage={changePage}
-                      pagination={pagination}
-            />
-            {/*<InitialPage updateNewUser={updateNewUser}*/}
-            {/*             addNewUser={addNewUser}*/}
+            {/*<MainPage updateNewUser={updateNewUser}*/}
+            {/*          addNewUser={addNewUser}*/}
+            {/*          dataUser={dataUser}*/}
+            {/*          changePage={changePage}*/}
+            {/*          pagination={pagination}*/}
             {/*/>*/}
+            <InitialPage updateNewUser={updateNewUser}
+                         addNewUser={addNewUser}
+            />
         </div>
     )
 }
