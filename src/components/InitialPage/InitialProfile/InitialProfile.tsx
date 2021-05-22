@@ -2,9 +2,9 @@ import React from 'react';
 import s from './InitialProfile.module.css';
 import search from '../../../common/assets/imageInitPage.png'
 
-type PropsInitialPageType = {}
+type PropsInitialProfileType = {}
 
-export const InitialProfile: React.FC<PropsInitialPageType> = props => {
+export const InitialProfile: React.FC<PropsInitialProfileType> = props => {
 
     const {} = props
 
