@@ -12,21 +12,21 @@ type PropsMainPageType = {
     dataUser: UserType
     changePage: (page: number) => void
     pagination: PaginationType
-    user: string
 }
 
 export const MainPage: React.FC<PropsMainPageType> = props => {
-    const {user: us} = useParams<{ user?: string }>()
-    const {updateNewUser, addNewUser, dataUser, changePage, pagination, user} = props
+
+    const {user} = useParams<{ user?: string }>()
+    const {updateNewUser, addNewUser, dataUser, changePage, pagination} = props
     const dispatch = useDispatch()
 
     useEffect(() => {
-        dispatch(getNewUser(user))
-        dispatch(getRepoUser(user, pagination.currentPage, pagination.pageSize))
+        dispatch(getNewUser({user}))
+        dispatch(getRepoUser('mojombo', pagination.currentPage, pagination.pageSize))
     }, [pagination, user])
 
     return (
-        <NavLink to={user}>
+        <NavLink to='/user/'>
             <div className={s.container}>
                 <Header updateNewUser={updateNewUser}
                         addNewUser={addNewUser}

@@ -30,19 +30,17 @@ function App() {
     return (
         <div className={s.container}>
             <Switch>
-                <Route exact path={"/paralectGit"} render={() => <Redirect to={'/initial'}/>}/>     {/*//gh-pages*/}
-                <Route exact path={`/user/${user}`} render={() =>
+                <Route path={'/paralectGit'} render={() =>
+                    <InitialPage updateNewUser={updateNewUser}
+                                 addNewUser={addNewUser}
+                    />
+                }/>
+                <Route exact path={`/user/:${user}`} render={() =>
                     <MainPage updateNewUser={updateNewUser}
                               addNewUser={addNewUser}
                               dataUser={dataUser}
                               changePage={changePage}
                               pagination={pagination}
-                              user={user}
-                    />
-                }/>
-                <Route path={'/initial'} render={() =>
-                    <InitialPage updateNewUser={updateNewUser}
-                                 addNewUser={addNewUser}
                     />
                 }/>
                 <Route path={'/unknown'} render={() =>
