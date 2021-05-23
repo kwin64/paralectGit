@@ -30,6 +30,7 @@ function App() {
     return (
         <div className={s.container}>
             <Switch>
+                <Route exact path={"/paralectGit"} render={() => <Redirect to={'/initial'}/>}/>     {/*//gh-pages*/}
                 <Route exact path={`/user/${user}`} render={() =>
                     <MainPage updateNewUser={updateNewUser}
                               addNewUser={addNewUser}

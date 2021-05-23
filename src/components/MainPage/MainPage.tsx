@@ -4,6 +4,7 @@ import s from './MainPage.module.css';
 import Profile from "../Profile/Profile";
 import {getNewUser, getRepoUser, PaginationType, UserType} from "../../store/userDataReducer";
 import {useDispatch} from "react-redux";
+import {NavLink, useParams} from 'react-router-dom';
 
 type PropsMainPageType = {
     updateNewUser: (user: string) => void
@@ -15,8 +16,8 @@ type PropsMainPageType = {
 }
 
 export const MainPage: React.FC<PropsMainPageType> = props => {
-
-    const {updateNewUser, addNewUser, dataUser, changePage, pagination,user} = props
+    const {user: us} = useParams<{ user?: string }>()
+    const {updateNewUser, addNewUser, dataUser, changePage, pagination, user} = props
     const dispatch = useDispatch()
 
     useEffect(() => {
@@ -25,15 +26,17 @@ export const MainPage: React.FC<PropsMainPageType> = props => {
     }, [pagination, user])
 
     return (
-        <div className={s.container}>
-            <Header updateNewUser={updateNewUser}
-                    addNewUser={addNewUser}
-            />
-            <Profile dataUser={dataUser}
-                     changePage={changePage}
-                     pagination={pagination}
-            />
-        </div>
+        <NavLink to={user}>
+            <div className={s.container}>
+                <Header updateNewUser={updateNewUser}
+                        addNewUser={addNewUser}
+                />
+                <Profile dataUser={dataUser}
+                         changePage={changePage}
+                         pagination={pagination}
+                />
+            </div>
+        </NavLink>
     )
 }
 
