@@ -28,7 +28,6 @@ function App() {
             pathname: '/user',
             search: `${user}`
         })
-        console.log(history)
     }
     const changePage = (page: number) => {
         dispatch(setCurrentPage(page))
@@ -43,10 +42,11 @@ function App() {
                 <Route path={'/paralectGit'} render={() =>
                     <InitialPage/>
                 }/>
-                <Route exact path={`/user/:userId?`} render={() =>
+                <Route exact path={`/user/`} render={() =>
                     <MainPage dataUser={dataUser}
                               changePage={changePage}
                               pagination={pagination}
+                              user={user}
                     />
                 }/>
                 <Route path={'/unknown'} render={() =>

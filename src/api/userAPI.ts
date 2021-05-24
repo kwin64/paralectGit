@@ -140,5 +140,8 @@ export const userAPI = {
     },
     getRepos(nameUser: string | undefined, currentPage: number, pageSize: number) {
         return instance.get<Array<RepoType>>(`users/${nameUser}/repos?page=${currentPage}&per_page=${pageSize}`)
+    },
+    getAllRepos(nameUser: string) {
+        return instance.get<Array<RepoType>>(`users/${nameUser}/repos`)
     }
 };

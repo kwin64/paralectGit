@@ -18,7 +18,9 @@ const Profile: React.FC<PropsProfileType> = props => {
     return (
         <div className={s.container}>
             <Description userDescription={dataUser.UserDescription}/>
-            <Repositories repos={dataUser.Repos}/>
+            <Repositories repos={dataUser.Repos}
+                          totalNumbersRepos={dataUser.UserDescription.public_repos}
+            />
             <Pagination totalRepos={dataUser.UserDescription.public_repos}
                         changePage={changePage}
                         pagination={pagination}
