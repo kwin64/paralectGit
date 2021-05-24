@@ -12,18 +12,14 @@ import {Header} from "./components/Header/Header";
 function App() {
 
     const [user, setUser] = useState<string>('')
-    const [newValue, setNewValue] = useState<string>('')
     let history = useHistory();
 
     const dispatch = useDispatch();
     const dataUser = useSelector<AppRootStateType, UserType>(data => data.userDataReducer)
     const pagination = useSelector<AppRootStateType, PaginationType>(data => data.userDataReducer.Pagination)
 
-    const updateNewUser = (user: string) => {
-        setNewValue(user)
-    }
-    const addNewUser = () => {
-        setUser(newValue)
+    const addNewUser = (newUser: string) => {
+        setUser(newUser)
         history.push({
             pathname: '/user',
             search: `${user}`
@@ -35,8 +31,7 @@ function App() {
 
     return (
         <div className={s.container}>
-            <Header updateNewUser={updateNewUser}
-                    addNewUser={addNewUser}
+            <Header addNewUser={addNewUser}
             />
             <Switch>
                 <Route path={'/paralectGit'} render={() =>

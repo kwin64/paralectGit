@@ -1,34 +1,40 @@
-import React, {ChangeEvent, KeyboardEvent} from 'react';
+import React, {ChangeEvent, KeyboardEvent, useState} from 'react';
 import git from '../../common/assets/github.png'
 import search from '../../common/assets/search.png'
 import s from './Header.module.css';
+import {useHistory} from "react-router-dom";
 
 
 type PropsHeaderType = {
-    updateNewUser: (user: string) => void
-    addNewUser: () => void
+    addNewUser: (newUser: string) => void
 }
 
 export const Header: React.FC<PropsHeaderType> = props => {
 
-    const {updateNewUser, addNewUser} = props
+    const [newValue, setNewValue] = useState<string>('')
+
+    const {addNewUser} = props
 
     const onKeyPressHandler = (e: KeyboardEvent<HTMLInputElement>) => {
         if (e.key === 'Enter') {
-            addNewUser()
+            addNewUser(newValue)
+            setNewValue('')
         }
     }
+
     const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
-        updateNewUser(e.currentTarget.value)
+        setNewValue(e.currentTarget.value)
     }
+
     const onClickImgSearchHandler = () => {
-        addNewUser()
+        addNewUser(newValue)
     }
 
     return (
         <div className={s.container}>
             <div className={s.logo}>
-                <a href="https://github.com/kwin64"><img src={git}/></a>
+                <a href="https://github.com/kwin64">
+                    <img src={git}/></a>
             </div>
             <div className={s.searchArea}>
                 <img src={search}
