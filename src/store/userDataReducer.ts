@@ -53,7 +53,7 @@ export const getRepo = (repos: Array<RepoType>) => ({type: 'reposReducer/GET_REP
 export const setCurrentPage = (currentPage: number) => ({type: 'reposReducer/SET_CURRENT_PAGE', currentPage,} as const)
 
 
-export const getNewUser = (nameUser: string) => async (dispatch: Dispatch) => {
+export const getNewUser = (nameUser?: string) => async (dispatch: Dispatch) => {
     try {
         const res = await userAPI.getUserData(nameUser)
         dispatch(getUser(res.data))
@@ -61,7 +61,7 @@ export const getNewUser = (nameUser: string) => async (dispatch: Dispatch) => {
         console.log('Error')
     }
 }
-export const getRepoUser = (nameUser: string, currentPage: number, pagesCount: number) => async (dispatch: Dispatch) => {
+export const getRepoUser = (nameUser: string | undefined, currentPage: number, pagesCount: number) => async (dispatch: Dispatch) => {
     try {
         const res = await userAPI.getRepos(nameUser, currentPage, pagesCount)
         dispatch(getRepo(res.data))

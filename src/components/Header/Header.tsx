@@ -7,7 +7,6 @@ import s from './Header.module.css';
 type PropsHeaderType = {
     updateNewUser: (user: string) => void
     addNewUser: () => void
-    // setNewValue: number
 }
 
 export const Header: React.FC<PropsHeaderType> = props => {
@@ -17,7 +16,6 @@ export const Header: React.FC<PropsHeaderType> = props => {
     const onKeyPressHandler = (e: KeyboardEvent<HTMLInputElement>) => {
         if (e.key === 'Enter') {
             addNewUser()
-            // setNewValue('') ???
         }
     }
     const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
