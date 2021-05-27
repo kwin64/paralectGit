@@ -37,7 +37,7 @@ function App() {
                 <Route path={'/paralectGit'} render={() =>
                     <InitialPage/>
                 }/>
-                <Route exact path={`/user/`} render={() =>
+                <Route exact path={`/user`} render={() =>
                     <MainPage dataUser={dataUser}
                               changePage={changePage}
                               pagination={pagination}
